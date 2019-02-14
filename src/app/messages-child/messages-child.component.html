@@ -1,0 +1,31 @@
+
+<table class="table table-bordered overflow-auto" style="max-height:500px">
+  <thead>
+    <tr>
+      <th scope="col">Sender</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="
+        let item of (dataz | paginate: { itemsPerPage: 10, currentPage: p })
+      "
+      routerLink="{{ item._id }}"
+    >
+      <th scope="row">
+        {{ item.senderName.last }} {{ item.senderName.first }}
+      </th>
+      <td>{{ item.subject }}</td>
+      <td>{{ item.date | date }}</td>
+    </tr>
+  </tbody>
+</table>
+<router-outlet></router-outlet>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+
+
+
+
