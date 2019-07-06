@@ -19,21 +19,23 @@ interface Person {
   styleUrls: ['./messagesdetail.component.css']
 })
 export class MessagesdetailComponent implements OnInit {
-
   detail: Person[];
-  finnaldetail:Person[];
-  folder='';
-  constructor(private dataservice: DataService,private route: ActivatedRoute) {
-    this.detail = this.dataservice.getData();   
-    console.log(this.detail) 
+  finnaldetail: Person[];
+  folder = '';
+  disabled: boolean;
+
+  constructor(private dataservice: DataService, private route: ActivatedRoute) {
+    this.detail = this.dataservice.getData();
+    console.log(this.detail);
   }
 
   ngOnInit() {
     this.route.paramMap.subscribe((curr: ParamMap) => {
       this.folder = curr.get('id');
-      this.finnaldetail = this.detail.filter((d: Person) => d.folder === this.folder);
-      console.log(this.finnaldetail)
+      this.finnaldetail = this.detail.filter(
+        (d: Person) => d.folder === this.folder
+      );
+      console.log(this.finnaldetail);
     });
   }
-
-}    ;;
+}

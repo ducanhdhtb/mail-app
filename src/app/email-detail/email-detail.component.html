@@ -1,0 +1,10 @@
+<div class="email-head row">
+  <div class="col-md-8">
+    <h4>{{ message?.subject }}</h4>
+    <div>{{ message?.from }}</div>
+  </div>
+  <div class="col-md-4">{{ message?.date | date: 'dd/MM/yyyy' }}</div>
+</div>
+<div class="email-body">
+  {{ message?.body }}
+</div>

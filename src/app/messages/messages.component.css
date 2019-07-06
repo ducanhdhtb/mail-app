@@ -1,0 +1,17 @@
+.email-boxes {
+  background-color: lightgray;
+}
+
+.email-title {
+  background-color: #ccc;
+  padding: 20px;
+}
+
+.email-content {
+  padding: 10px;
+}
+
+.scroll {
+  max-height: 400px;
+  overflow-y: scroll;
+}

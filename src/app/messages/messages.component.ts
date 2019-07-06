@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-messages',
@@ -6,19 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-  messagesItems = [
-    "inbox",
-    "finance",
-    "travel",
-    'personal',
-    "spam",
-    "drafts",
-    "sent"
+  messagesItems = [];
 
-  ]
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private dataService: DataService) {
+    this.messagesItems = dataService.getUniqueFolders();
   }
 
+  onClick() {
+    console.log('Test');
+    this.dataService.setDisabled(true);
+  }
+
+  ngOnInit() {}
 }
